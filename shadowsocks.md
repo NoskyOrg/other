@@ -59,7 +59,7 @@ cat << eof > /etc/shadowsocks.json
     "server_port":10000,
     "local_address": "127.0.0.1",
     "local_port":1080,
-    "password":"big@RED",
+    "password":"bigPass",
     "timeout":300,
     "method":"salsa20",
     "fast_open": true
