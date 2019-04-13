@@ -97,8 +97,19 @@ then
 fi
 # ----------------------
 
-echo  "30  *  *  *  *  bash /root/chkSS.sh"  >>  /var/spool/cron/root
+
+$ systemctl start crond
+$ systemctl enable crond
+cat << eof >> /var/spool/cron/root
+*  *  *  *  * bash /root/chkSS.sh        
+*  *  *  *  * sleep 10; bash /root/chkSS.sh 
+*  *  *  *  * sleep 20; bash /root/chkSS.sh 
+*  *  *  *  * sleep 30; bash /root/chkSS.sh 
+*  *  *  *  * sleep 40; bash /root/chkSS.sh
+*  *  *  *  * sleep 50; bash /root/chkSS.sh 
+eof
 crontab -l
+
 
 cat chkSS.sh 
 chmod +x chkSS.sh 
