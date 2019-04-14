@@ -89,6 +89,8 @@ cd /root
 
 vi chkSS.sh
 # ----------------------
+#!/bin/bash
+
 num=`ps aux | grep ssserver | wc -l`
 
 if ((num < 2))
