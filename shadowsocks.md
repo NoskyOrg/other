@@ -46,6 +46,16 @@ getenforce
 # 开启一个端口
 firewall-cmd --zone=public --add-port=80/tcp --permanent    
 # --permanent永久生效，没有此参数重启后失效
+firewall-cmd --reload
+# 刷新服务生效
+
+# 关闭一个端口
+firewall-cmd --zone=public --remove-port=2222/tcp --permanent
+firewall-cmd --reload
+
+# 查看开放的端口
+firewall-cmd --zone=public --list-ports
+firewall-cmd --reload
 ```
 
 ### 安装 & 配置 & 启动 shadowsocks
