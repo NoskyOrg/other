@@ -132,4 +132,18 @@ chmod +x chkSS.sh
 bash -x chkSS.sh 
 ```
 
+## 添加 swap
+
+```bash
+dd if=/dev/zero of=/root/swapfile bs=1M count=1024
+mkswap /root/swapfile
+chmod 600 swapfile
+# swapoff /root/swapfile
+swapon /root/swapfile
+echo 30 > /proc/sys/vm/swappiness
+
+echo "/root/swapfile swap swap defaults 0 0" >> /etc/fstab
+mount -a
+```
+
 ## 完
